@@ -3,7 +3,7 @@ var vows   = require("vows"),
     cube   = require("../"),
     test   = require("./test");
 
-var suite = vows.describe("collector");
+var suite = vows.describe("authenticated-collector");
 
 var port = ++test.port, server = cube.server({
   "mongo-host": "localhost",
