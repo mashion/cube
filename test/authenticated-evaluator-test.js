@@ -10,8 +10,12 @@ var port = ++test.port, server = cube.server({
   "mongo-port": 27017,
   "mongo-database": "cube_test",
   "http-port": port,
-  "authentication": function (data) {
-    return data.user === "goodUser" && data.password === "goodPassword";
+  "authentication": function (data, successFn, failureFn) {
+    if (data.user === "goodUser" && data.password === "goodPassword") {
+      successFn();
+    } else {
+      failureFn();
+    }
   }
 });
 
